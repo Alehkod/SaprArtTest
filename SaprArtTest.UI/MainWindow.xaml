@@ -1,0 +1,51 @@
+﻿<Window x:Name="window" x:Class="SaprArtTest.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SaprArtTest.UI"
+        xmlns:controls="clr-namespace:SaprArtTest.UI.Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <controls:DrawingAreaControl IsEnabled="False" Grid.Row="0" x:Name="DrawingArea" MouseDown="DrawingArea_MouseDown"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            
+
+            <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ComboBox x:Name="ColorBox" SelectedIndex="0" >
+                    <TextBlock>Red</TextBlock>
+                    <TextBlock>Blue</TextBlock>
+                    <TextBlock>Green</TextBlock>
+                </ComboBox>
+                <CheckBox x:Name="CheckIsMain">Is Main</CheckBox>
+                <CheckBox x:Name="CheckAllRectangles">All Rectangles</CheckBox>
+            </StackPanel>
+            
+            <Button Grid.Column="1" Click="CreateRectangle_ButtonClick">Create rectangel</Button>
+            <Button Grid.Column="2" Click="UpdateMainRectangle_ButtonClick">Update main rectangle</Button>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="HelperLabel" Grid.Row="2" Grid.Column="0" MinHeight="20" FontSize="14" HorizontalAlignment="Left">Select an action:</Label>
+            <Label x:Name="ResultLabel" Grid.Row="2" Grid.Column="1" MinHeight="20" FontSize="14" HorizontalAlignment="Right" ></Label>
+        </Grid>
+    </Grid>
+</Window>
